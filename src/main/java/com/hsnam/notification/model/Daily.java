@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,7 +34,7 @@ public class Daily implements Serializable {
     @JsonProperty("wind_deg")
     private Integer windDeg;
 
-    private Weather weather;
+    private List<Weather> weather;
     private Integer clouds;
     private Double pop;
     private Double uvi;

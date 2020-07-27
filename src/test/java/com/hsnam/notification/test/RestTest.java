@@ -1,5 +1,6 @@
 package com.hsnam.notification.test;
 
+import com.hsnam.notification.model.dto.ReqOnceCallDto;
 import com.hsnam.notification.model.dto.ReqWeatherDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -36,8 +37,8 @@ public class RestTest {
 
         System.out.println("url = " + url);
 
-        Optional<ReqWeatherDto> resWeather = Optional.ofNullable(this.restTemplate.getForObject(url, ReqWeatherDto.class));
-        System.out.println("ResWeatherDto = " + resWeather.toString());
+        Optional<ReqWeatherDto> reqWeather = Optional.ofNullable(this.restTemplate.getForObject(url, ReqWeatherDto.class));
+        System.out.println("ResWeatherDto = " + reqWeather.toString());
     }
 
     @Test
@@ -52,7 +53,7 @@ public class RestTest {
 
         System.out.println("url = " + url);
 
-        Optional<ReqWeatherDto> resWeather = Optional.ofNullable(this.restTemplate.getForObject(url, ReqWeatherDto.class));
-        System.out.println("ResWeatherDto = " + resWeather.toString());
+        Optional<ReqOnceCallDto> reqOnceCall = Optional.ofNullable(this.restTemplate.getForObject(url, ReqOnceCallDto.class));
+        System.out.println("ResWeatherDto = " + reqOnceCall.toString());
     }
 }

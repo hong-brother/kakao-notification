@@ -1,0 +1,9 @@
+### Test
+GET http://{{host}}/data/2.5/forecast?id=524901&APPID={{api}}
+Accept: application/json
+
+### Current Weeather data
+GET http://{{host}}/data/2.5/weather?q=Seoul&appid={{api}}
+
+### One Call API
+GET http://{{host}}/data/2.5/onecall?lat=37.56826&lon=126.977829&appid={{api}}

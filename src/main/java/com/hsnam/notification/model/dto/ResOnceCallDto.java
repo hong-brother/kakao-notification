@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ReqOnceCallDto implements Serializable {
+public class ResOnceCallDto implements Serializable {
 
     private static final long serialVersionUID = 9107729010997925139L;
 

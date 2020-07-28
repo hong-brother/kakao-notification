@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ReqWeatherDto implements Serializable {
+public class ResWeatherDto implements Serializable {
 
     private static final long serialVersionUID = -3398531481584977288L;
 

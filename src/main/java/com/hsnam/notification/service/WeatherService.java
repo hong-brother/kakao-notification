@@ -1,7 +1,7 @@
 package com.hsnam.notification.service;
 
-import com.hsnam.notification.model.dto.ReqOnceCallDto;
-import com.hsnam.notification.model.dto.ReqWeatherDto;
+import com.hsnam.notification.model.dto.ResOnceCallDto;
+import com.hsnam.notification.model.dto.ResWeatherDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,35 +15,35 @@ import java.util.Optional;
 @Service
 public class WeatherService {
 
-    @Value("weather.host")
+    @Value("${weather.host}")
     private String host;
 
-    @Value("weather.app.id")
+    @Value("${weather.app.id}")
     private String appId;
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public Optional<ReqWeatherDto> getWeather(){
+    public Optional<ResWeatherDto> getWeather(String location){
         String url = UriComponentsBuilder.fromHttpUrl(this.host)
                 .pathSegment("weather")
-                .queryParam("q", "Seoul")
+                .queryParam("q", location)
                 .queryParam("appid", this.appId)
                 .build().toString();
         log.info("URL = {}", url);
         return Optional
-                .ofNullable(this.restTemplate.getForObject(url, ReqWeatherDto.class));
+                .ofNullable(this.restTemplate.getForObject(url, ResWeatherDto.class));
     }
 
-    public Optional<ReqOnceCallDto> getOnceCall(){
+    public Optional<ResOnceCallDto> getOnceCall(Double lat, Double lon){
         String url = UriComponentsBuilder.fromHttpUrl(this.host)
                 .pathSegment("onecall")
-                .queryParam("lat", "37")
-                .queryParam("lon", "126")
+                .queryParam("lat", lat)
+                .queryParam("lon", lon)
                 .queryParam("appid", this.appId)
                 .build().toString();
         log.info("URL = {}", url);
         return Optional
-                .ofNullable(this.restTemplate.getForObject(url, ReqOnceCallDto.class));
+                .ofNullable(this.restTemplate.getForObject(url, ResOnceCallDto.class));
     }
 }
